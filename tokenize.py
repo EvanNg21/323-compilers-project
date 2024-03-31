@@ -1,22 +1,25 @@
-import re
+```import re
 
 #tokenize the code
 def tokenize(no_spaces):
     tokens = []
-    #intialize lists of each category
+    # Initialize lists of each category
     keywords = ["def", "return", "print", "input"]
     operators = ["+", "-", "*", "/", "%", "**", "++", "--", "==", ">", "<", "!=", "&&", "||"]
     delimiters = ["(", ")", "{", "}", "[", "]", ",", ";", ":"]
 
-    #define lists of patterns of each category
+    # Define lists of patterns of each category
     keyword_pattern = '|'.join([re.escape(kw) for kw in keywords])
     identifier_pattern = r'[a-zA-Z_][a-zA-Z0-9_]*'
     operator_pattern = '|'.join([re.escape(op) for op in operators])
     delimiter_pattern = '|'.join([re.escape(d) for d in delimiters])
     literal_pattern = r'\d+'
 
-    #tokenize each line without spaces
-    for token in re.findall(f'{keyword_pattern}|{identifier_pattern}|{operator_pattern}|{delimiter_pattern}|{literal_pattern}', no_spaces):
+    # Concatenate lines into a single string
+    code_without_spaces = ''.join(no_spaces)
+
+    # Tokenize the concatenated code
+    for token in re.findall(f'{keyword_pattern}|{identifier_pattern}|{operator_pattern}|{delimiter_pattern}|{literal_pattern}', code_without_spaces):
         if token in keywords:
             tokens.append(('Keyword', token))
         elif re.match(identifier_pattern, token):
@@ -29,3 +32,5 @@ def tokenize(no_spaces):
             tokens.append(('Literal', token))
     
     return tokens
+
+```
