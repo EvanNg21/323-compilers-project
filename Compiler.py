@@ -1,5 +1,5 @@
 import re
-from tokenize_file import tokenize 
+
 
 # Read the file
 def read_file(file):
