@@ -1,4 +1,4 @@
-```import re
+import re
 
 #tokenize the code
 def tokenize(no_spaces):
@@ -32,5 +32,3 @@ def tokenize(no_spaces):
             tokens.append(('Literal', token))
     
     return tokens
-
-```
