@@ -67,7 +67,9 @@ def main():
     # Print tokens (for demonstration)
     print("CODE WITHOUT SPACES AND COMMENTS:")
     for line in no_spaces:
-        print(line.strip())
+        line = line.strip()
+        if line:
+            print(line)
 
     print("\nTOKENIZED CODE:")
     for line in no_spaces:
